@@ -34,7 +34,7 @@ function formHandling () {
 };
 
 
-
+// Create task
 function createTask() {
   formHandling()
   taskDiv.textContent = "";
@@ -72,7 +72,7 @@ function createTask() {
 
 
 
-
+// Add class to done tasks
 function handleFinishedTasks(taskDiv, index, task){
   if(task.isDone && parseInt(taskDiv.id) === index) {
     taskDiv.classList.add("task-is-done")
@@ -81,6 +81,7 @@ function handleFinishedTasks(taskDiv, index, task){
 
 createTask()
 
+//Delete task
 function deleteTask() {
 taskDiv.addEventListener("click", e => {
   if(e.target.classList.contains("deleteBtn")) {
@@ -93,7 +94,7 @@ taskDiv.addEventListener("click", e => {
 })
 }
 
-
+// Update task
 function updateTask() {
   taskDiv.addEventListener("click", e => {
     if(e.target.classList.contains("updateBtn")){
@@ -107,7 +108,7 @@ function updateTask() {
 }
 deleteTask()
 
-
+// Create update fields
 function updateDiv(parentElement, updateBtn, title) {
   const editDiv = document.createElement("div");
   editDiv.classList.add("editDiv");
@@ -138,6 +139,8 @@ function updateDiv(parentElement, updateBtn, title) {
 
 updateTask()
 
+
+// Mark task as done
 function markTask() {
   taskDiv.addEventListener("click", e => {
     if(e.target.classList.contains("doneBtn")){
@@ -156,6 +159,8 @@ function markTask() {
 }
 markTask()
 
+
+// Save tasks into local storage
 function saveTask(){
 window.localStorage.setItem("tasks", JSON.stringify(tasks))
 }
